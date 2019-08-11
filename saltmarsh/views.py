@@ -22,4 +22,4 @@ def home(request):
     return render(request, "saltmarsh/home.html", context)
 
 def about(request):
-    return render(request, "saltmarsh/about.html")
+    return render(request, "saltmarsh/about.html", { 'title': 'About'})
