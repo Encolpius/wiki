@@ -34,8 +34,23 @@ SIDEBAR
 
 #sidebar {
     height: 100vh;
-    flex-basis: 240px;
+    flex-basis: 180px;
+    min-width: 180px;
     border-right: 2px solid #a7d7f9;
+}
+
+.sidebar-head {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+}
+
+.sidebar-portal > p {
+    padding: 15px 20px;
 }
 
 

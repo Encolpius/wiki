@@ -15,15 +15,21 @@
 <body>
     <div class="container">
         <section id="sidebar">
-            <h1>The Ghosts of Saltmarsh</h1>
-            <ul>
-                <li>Sessions</li>
-                <li>Party Members</li>
-                <li>NPCs</li>
-                <li>Enemies</li>
-                <li>Locations</li>
-                <li>Events</li>
-            </ul>
+            <div class="sidebar-head">
+                <h3>The Ghosts</h3>
+                <h3>of Saltmarsh</h3>
+            </div>
+            <div class="sidebar-portal">
+                <p>Noara's Journal</p>
+                <p>Party Members</p>
+                <p>Quests</p>
+                <p>City of Saltmarsh</p>
+                <p>NPCs</p>
+                <p>Enemies</p>
+                <p>Locations</p>
+                <p>Events</p>
+                <p>Resources</p>
+            </div>
         </section>
         <section id="body-content">
             <nav>
@@ -31,7 +37,7 @@
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li>Profile</li>
                     <li><a href="{% url 'about' %}">About</a></li>
-                    <li>Logout</li>
+                    <li>Login</li>
                 </ul>
             </nav>
             <div>
