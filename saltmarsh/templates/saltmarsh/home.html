@@ -1,8 +1,8 @@
 {% extends 'saltmarsh/base.html' %}
 {% block content %}
-    {% for article in articles %}
-        <h1>{{ article.title }}</h1>
-        <p>Posted by {{ article.author }} on {{ article.date_posted }}</p>
-        <p>{{ article.content }}</p>
+    {% for session in sessions %}
+        <h1>{{ session.title }}</h1>
+        <p>Posted by {{ session.author }} on {{ session.date_posted|date:"F d, Y" }}</p>
+        <p>{{ session.content }}</p>
     {% endfor %}
 {% endblock %}
