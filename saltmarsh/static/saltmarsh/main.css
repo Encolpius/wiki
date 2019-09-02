@@ -1,7 +1,7 @@
 /*
-===============
+============================
 IMPORTS
-===============
+============================
 */
 
 
@@ -9,82 +9,288 @@ IMPORTS
 
 
 /*
-===============
-BODY LAYOUT
-===============
+============================
+MAIN BODY LAYOUT
+============================
 */
 
+html {
+    overflow-y: scroll;
+}
+
+body {
+    background-color: #f9f9f9;
+}
 
 .container {
-    height: 100%;
-    display: flex;
+    margin: 30px auto;
+    max-width: 990px;
+    border: 1px solid #CCC;
+    background-color: white;
+    border-radius: 4px;
 }
 
-#body-content {
-    width: 100vw;
+.container_wrapper {
+    max-width: 950px;
+    margin: 0 auto;
 }
 
-
-/*
-=================
-SIDEBAR
-=================
-*/
-
-
-#sidebar {
-    height: 100vh;
-    flex-basis: 180px;
-    min-width: 180px;
-    border-right: 2px solid #a7d7f9;
+.container-wrapper_head {
+    height: 105px;
 }
 
-.sidebar-head {
-    height: 120px;
+.featured-box {
+    margin: 10px 0;
+    padding: 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-}
-
-.sidebar-portal > p {
-    padding: 10px 20px;
+    border: 1px solid #CCC;
 }
 
 
 /*
-=================
+============================
+SECTION LAYOUT
+============================
+*/
+
+
+.wiki-article-container {
+    display: flex;
+}
+
+.wiki-article-col__left {
+    width: 602px;
+    margin-right: 12px ;
+}
+
+.wiki-article-col__right {
+    flex-grow: 1;
+}
+
+.homepage-posts {
+    margin-left: 8px;
+    flex-basis: auto;
+}
+
+.countdown-box {
+    margin: 2px 0;
+    padding: 10px;
+    background-color: #EEE;
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #CCC;
+}
+
+.countdown-box * {
+    padding: 5px;
+}
+
+.messages-container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success {
+    background-color: #D4EDDA;
+    color: #8A9A66;
+    font-weight: 700;
+}
+
+.error {
+    background-color: #F8D7DA;
+    color: #A74E69;
+}
+
+
+/*
+============================
 NAVIGATION
-=================
+============================
 */
 
 
 nav {
-    height: 60px;
+    height: 55px;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-basis: auto;
-    font-family: 'Roboto', sans-serif;
+    background-color: lightblue;
+    font-family: "Helvetica Neue", sans-serif;
     font-size: 15px;
 }
 
 nav li {
     display: inline;
-    padding: 12px;
+    padding: 8px 14px;
 }
 
-nav li:last-child {
-    margin-right: 25px;
+nav ul li:last-child {
+    border: 1px solid white;
+    margin: 0 30px 0 8px;
+    border-radius: 4px;
 }
 
-nav a {
+.li-inline {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.li-inline li:first-child {
+    margin-right: auto;
+    margin-left: 30px;
+}
+
+
+/*
+============================
+HOMEPAGE
+============================
+*/
+
+
+.next-session {
+    height: 104px;
+    background-color: #EEE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.next-session h4 {
+    padding: 5px;
+}
+
+
+/*
+============================
+FONTS
+============================
+*/
+
+
+h1 {
+    font-size: 36px;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+h2 {
+    font-size: 28px;
+    color: #3a3a3a;
+}
+
+h3, h4 {
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+p {
+    padding: 8px 0;
+}
+
+strong {
+    font-weight: 700;
+}
+
+.page-header__title {
+    color: #3a3a3a;
+    font-weight: bold;
+    border-bottom: 1px solid #CCC;
+    padding: 10px 0;
+}
+
+.section-header {
+    margin: 30px 0 5px 0;
+    margin-top: 30px;
+}
+
+
+/*
+============================
+ANCHORS
+============================
+*/
+
+a {
     text-decoration: none;
     color: black;
 }
 
-nav a:hover {
-    color: blue
+
+/*
+============================
+ERRORS
+============================
+*/
+
+.errorlist {
+    height: 60px;
+    background-color: #F8D7DA;
+    color: #A74E69;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.errorlist li {
+    font-size: 14px;
+    padding: 8px;
+}
+
+
+/*
+============================
+MEDIA QUERIES
+============================
+*/
+
+
+@media (max-width: 1044px) {
+
+    .container {
+        max-width: 802px;
+    }
+
+    .container_wrapper {
+        margin: 0 24px;
+    }
+
+    .wiki-article-col__right {
+        display: none;
+    }
+    .wiki-article-col__left {
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 828px) {
+    .container {
+        margin: 30px 6px;
+    }
+}
+
+
+@media (max-width: 540px) {
+    nav {
+        font-size: 13px;
+    }
 }

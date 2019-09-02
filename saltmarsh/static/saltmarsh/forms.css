@@ -1,0 +1,44 @@
+form {
+    margin: 10px 0;
+}
+
+input {
+    display: block;
+    margin: 8px 6px 8px 0;
+    font-size: 1rem;
+    padding: .375rem .75rem;
+    width: 95%;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    color: #495057;
+}
+
+input:focus {
+    outline: 0;
+    box-shadow: 0 0 3pt #17a2b8;
+}
+
+.helptext,
+form li {
+    display: block;
+    color: #6c757d;
+    font-size: 80%;
+    font-weight: 400;
+}
+
+.btn-submit {
+    cursor: pointer;
+    margin: 8px 0;
+    padding: 11px;
+    font-size: 1rem;
+    color: #17a2b8;
+    border: 1px solid #17a2b8;
+    background: white;
+    border-radius: 4px;
+}
+
+.btn-submit:hover {
+    color: white;
+    background: #17a2b8;
+    transition: 0.5s;
+}

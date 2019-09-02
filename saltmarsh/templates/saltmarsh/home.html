@@ -1,8 +1,24 @@
 {% extends 'saltmarsh/base.html' %}
 {% block content %}
-    {% for session in sessions %}
-        <h1>{{ session.title }}</h1>
-        <p>Posted by {{ session.author }} on {{ session.date_posted|date:"F d, Y" }}</p>
-        <p>{{ session.content }}</p>
-    {% endfor %}
+    <h1 class="page-header__title">Home</h1>
+    <div class="wiki-article-container">
+        <div class="wiki-article-col__left">
+            <div class="featured-box">
+                <h4 class="section-header">Next Session</h4>
+                <div class="countdown-box">
+                    <h2>September 22, 2019</h2>
+                    <h5>-</h5>
+                    <h5>12pm NOON at Noara's abode</h5>
+                </div>
+            </div>
+            <div class="featured-box">
+                <h4 class="section-header">Featured Article</h4>
+            </div>
+        </div>
+        <div class="wiki-article-col__right">
+            <div class="featured-box homepage-posts">
+                <h4 class="section-header">Latest Posts</h4>
+            </div>
+        </div>
+    </div>
 {% endblock %}

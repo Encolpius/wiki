@@ -1,10 +1,13 @@
 {% extends 'saltmarsh/base.html' %}
 {% block content %}
-    <h1 class="page-header__title">About</h1>
+    <h1 class="page-header__title">Join the Campaign</h1>
     <div class="wiki-article-container">
         <div class="wiki-article-col__left">
-            <p>For my Saltmarsh group!</p>
-            <p>Stay tuned for more information.</p>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn-submit" type="submit">Sign Up</button>
+            </form>
         </div>
         <div class="wiki-article-col__right">
             <div class="featured-box homepage-posts">
