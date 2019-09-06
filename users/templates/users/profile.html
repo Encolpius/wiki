@@ -1,6 +1,23 @@
 {% extends 'saltmarsh/base.html' %}
 {% block content %}
     <div class="wiki-article-container">
-        <h1> {{ user.username }} </h1>
+        <div class="wiki-article-col__left">
+            <div class="profile-info">
+                <div class="profile-pic">
+                    <img src="https://dwightlongenecker.com/wp-content/uploads/2018/12/frodo-goodbyeb.jpg">
+                </div>
+                <div class="profile-text">
+                    <h2 class="profile-username"> {{ user.username }}</h2>
+                    <h4><em>Fighter</em></h4>
+                    <h4> {{ user.email }} </h4>
+                </div>
+            </div>
+        </div>
+        <div class="wiki-article-col__right">
+            <div class="featured-box homepage-posts">
+                <h4 class="section-header">Latest Posts</h4>
+            </div>
+        </div>
     </div>
 {% endblock %}
+

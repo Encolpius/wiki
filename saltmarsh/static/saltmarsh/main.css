@@ -62,7 +62,8 @@ SECTION LAYOUT
 
 .wiki-article-col__left {
     width: 602px;
-    margin-right: 12px ;
+    margin-left: 12px; 
+    margin-right: 12px;
 }
 
 .wiki-article-col__right {
@@ -71,6 +72,7 @@ SECTION LAYOUT
 
 .homepage-posts {
     margin-left: 8px;
+    margin-right: 8px;
     flex-basis: auto;
 }
 
@@ -120,7 +122,8 @@ nav {
     display: flex;
     background-color: lightblue;
     font-family: "Helvetica Neue", sans-serif;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 nav li {
@@ -129,7 +132,6 @@ nav li {
 }
 
 nav ul li:last-child {
-    border: 1px solid white;
     margin: 0 30px 0 8px;
     border-radius: 4px;
 }
@@ -144,6 +146,16 @@ nav ul li:last-child {
 .li-inline li:first-child {
     margin-right: auto;
     margin-left: 30px;
+}
+
+nav li a{
+    padding: 19px 0;
+}
+
+.log-link {
+    border: 1px solid white;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
@@ -170,10 +182,48 @@ HOMEPAGE
 
 /*
 ============================
+PROFILE PAGE
+============================
+*/
+
+.profile-info {
+    display: flex;
+    padding: 10px 0;
+}
+
+.profile-text {
+    flex-grow: auto;
+    padding-left: 15px;
+}
+
+.profile-username {
+    font-weight: 700;
+}
+
+.profile-text h4 {
+    padding-top: 9px; 
+    font-weight: 200;
+}
+
+.profile-pic {
+    height: 125px;
+    width: auto;
+}
+
+.profile-pic img {
+    height: 100%;
+    width: auto;   
+}
+
+/*
+============================
 FONTS
 ============================
 */
 
+em {
+    font-style: italic;
+}
 
 h1 {
     font-size: 36px;
@@ -194,7 +244,7 @@ h3 {
 }
 
 h4 {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 h5 {
@@ -228,7 +278,7 @@ ANCHORS
 ============================
 */
 
-a {
+nav a {
     text-decoration: none;
     color: black;
 }
