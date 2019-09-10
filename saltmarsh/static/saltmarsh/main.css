@@ -189,11 +189,14 @@ PROFILE PAGE
 .profile-info {
     display: flex;
     padding: 10px 0;
+    margin: 9px 0;
 }
 
 .profile-text {
     flex-grow: auto;
+    padding-top: 8px;
     padding-left: 15px;
+    width: 100%;
 }
 
 .profile-username {
@@ -201,18 +204,18 @@ PROFILE PAGE
 }
 
 .profile-text h4 {
-    padding-top: 9px; 
     font-weight: 200;
 }
 
-.profile-pic {
-    height: 125px;
-    width: auto;
+.profile-metadata {
+    color: #333;
 }
 
-.profile-pic img {
-    height: 100%;
-    width: auto;   
+.account-img {
+    height: 125px;
+    width: 125px;  
+    margin-right: 8px;
+    margin-bottom: 8px;
 }
 
 /*
