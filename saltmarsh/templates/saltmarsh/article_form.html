@@ -1,14 +1,13 @@
 {% extends 'saltmarsh/base.html' %}
 {% block content %}
-    <h1 class="page-header__title">Join the Campaign</h1>
+    <h1 class="page-header__title">Create New Article</h1>
     <div class="wiki-article-container">
         <div class="wiki-article-col__left">
             <form method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button class="btn-submit" type="submit">Update</button>
+                <button class="btn-submit" type="submit">Create</button>
             </form>
-            <p>Already have an account? <a href="{% url 'login' %}">Log in here!</a></p>
         </div>
         <div class="wiki-article-col__right">
             <div class="featured-box homepage-posts">
