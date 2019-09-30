@@ -14,6 +14,7 @@ class Sessions(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
+    slug = models.SlugField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
