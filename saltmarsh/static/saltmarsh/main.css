@@ -118,7 +118,7 @@ NAVIGATION
 nav {
     height: 55px;
     display: flex;
-    background-color: lightblue;
+    background-color: #5f788a;
     font-family: "Helvetica Neue", sans-serif;
     font-size: 16px;
     font-weight: 500;
@@ -152,6 +152,12 @@ nav ul li:last-child {
 
 nav li a{
     padding: 19px 10px;
+    color: #cbd5db;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav li a:hover {
+    color: white;
 }
 
 
