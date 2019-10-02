@@ -213,16 +213,21 @@ PROFILE PAGE
     color: #333;
 }
 
-.account-img {
-    height: 125px;
-    width: 125px;  
-    margin-right: 8px;
-    margin-bottom: 8px;
-    object-fit: cover;
-}
-
 .profile-update {
     margin: 10px 0;
+}
+
+.profile-pic {
+    min-width: 135px;
+    max-width: 135px;
+    height: 135px;
+    margin-right: 8px;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /*
