@@ -28,7 +28,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 INTERNAL_IPS = (
     '69.143.96.57'
 )
-{% if debug %}
 
 ALLOWED_HOSTS = ['saltmarsh-wiki.herokuapp.com']
 
