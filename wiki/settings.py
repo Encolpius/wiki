@@ -22,12 +22,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = '#l%_-505pxm(!b0%*gly@h39w@#7!cfnv)o9gy=-3z&moh-5%k'
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG_VALUE', False)
+DEBUG = (os.environ.get('DEBUG_VALUE') == 'True')
 
-ALLOWED_HOSTS = ['saltmarsh-wiki.herokuapp.com']
+ALLOWED_HOSTS = ['https://saltmarsh-wiki.herokuapp.com/']
 
 
 # Application definition
