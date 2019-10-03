@@ -1,3 +1,5 @@
+import logging 
+log = logging.getLogger(__name__)
 from django.shortcuts import render
 from .models import Sessions, Article
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
