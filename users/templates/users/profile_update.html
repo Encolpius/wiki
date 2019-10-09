@@ -1,0 +1,19 @@
+{% extends 'saltmarsh/base.html' %}
+{% block content %}
+    <div class="wiki-article-container">
+        <div class="wiki-article-col__left">
+            <h4 style="color: red">Update Profile Info</h4>
+            <hr>
+            <form method="POST">
+                {% csrf_token %}
+                {{ p_form.as_p }}
+                <button class="btn-submit" type="submit">Update Profile</button>
+            </form>
+        </div>
+        <div class="wiki-article-col__right">
+            <div class="featured-box homepage-posts">
+                <h4 class="section-header">Recent Activity</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}

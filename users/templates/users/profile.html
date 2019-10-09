@@ -10,19 +10,15 @@
                     <h2 class="profile-username"> {{ user.username }}'s Profile</h2>
                     <hr style="width: initial"></hr>
                     <div class="profile-metadata">
-                        <h4><em>Human Cleric</em></h4>
+                        <h4><em>{{ user.profile.race }} {{user.profile.charClass }}</em></h4>
                     </div>
                 </div>
             </div>
             <div class="profile-update">
-                <h4 style="color: red">Update Profile Info</h4>
+                <h4 style="color: red">Profile Info</h4>
                 <hr>
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ u_form.as_p }}
-                    {{ p_form.as_p }}
-                    <button class="btn-submit" type="submit">Update</button>
-                </form>
+                <p>{{ user.profile.background }}</p>
+                <a href="{% url 'profile-update' %}"><button class="btn-submit">Update Profile</button></a>
             </div>
         </div>
         <div class="wiki-article-col__right">
@@ -32,4 +28,3 @@
         </div>
     </div>
 {% endblock %}
-
