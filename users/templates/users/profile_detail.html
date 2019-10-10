@@ -1,0 +1,29 @@
+{% extends 'saltmarsh/base.html' %}
+{% block content %}
+    <div class="wiki-article-container">
+        <div class="wiki-article-col__left">
+            <div class="profile-info">
+                <div class="profile-pic">
+                    <img src="{{ user.profile.image.url }}">
+                </div>
+                <div class="profile-text">
+                    <h2 class="profile-username"> {{ user.username }}'s Profile</h2>
+                    <hr style="width: initial"></hr>
+                    <div class="profile-metadata">
+                        <h4><em>{{ user.profile.race }} {{user.profile.charClass }}</em></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-update">
+                <h4 style="color: red">Profile Info</h4>
+                <hr>
+                <p>{{ user.profile.background }}</p>
+            </div>
+        </div>
+        <div class="wiki-article-col__right">
+            <div class="featured-box homepage-posts">
+                <h4 class="section-header">Recent Activity</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}
