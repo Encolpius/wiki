@@ -1,0 +1,18 @@
+{% extends 'saltmarsh/base.html' %}
+{% block content %}
+    <h1 class="page-header__title">New comment</h1>
+    <div class="wiki-article-container">
+        <div class="wiki-article-col__left">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn-submit" type="submit">Create</button>
+            </form>
+        </div>
+        <div class="wiki-article-col__right">
+            <div class="featured-box homepage-posts">
+                <h4 class="section-header">Recent Activity</h4>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -4,6 +4,14 @@
     <div class="wiki-article-container">
         <div class="wiki-article-col__left">
             {{ object.content }}
+            <a href="{% url 'add-comment-to-article' pk=article.pk %}">Add comment</a>
+            {% for comment in comments %}
+                <div class="comment">
+                    {{ comment.text }}
+                </div>
+            {% empty %}
+                <p>Be the first to add a comment!</p>
+            {% endfor %}
         </div>
         <div class="wiki-article-col__right">
             <div class="featured-box homepage-posts">

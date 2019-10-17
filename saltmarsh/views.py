@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from .models import Sessions, Article
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Sessions, Article, Comment
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .form import CommentForm
 
 def home(request):
     context = {
@@ -20,6 +21,10 @@ class ArticleListView(ListView):
 
 class ArticleDetailView(DetailView):
     model = Article
+    def get_context_data(self, **kwargs):
+        context = super(ArticleDetailView, self).get_context_data(**kwargs)
+        context['comments'] = Comment.objects.filter(post_id=self.object.id).all()
+        return context
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
     model = Article
@@ -48,3 +53,16 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True 
         return False
+
+def add_comment_to_article(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = article 
+            comment.save()
+            return redirect('article-detail', pk=article.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'saltmarsh/add_comment_to_article.html', {'form': form})

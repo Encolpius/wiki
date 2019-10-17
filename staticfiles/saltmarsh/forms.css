@@ -4,6 +4,8 @@ form p:first-of-type {
 
 label {
     display: block; 
+    font-size: 18px;
+    padding: 7px;
 }
 
 textarea {
