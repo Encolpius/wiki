@@ -4,6 +4,11 @@
     <div class="wiki-article-container">
         <div class="wiki-article-col__left">
             <div class="featured-box">
+                <h2>Welcome to <span class="subtitle-home">The Ghosts of Saltmarsh!</span></h2>
+                <p><strong>A current account of Saltmarsh and its environs</strong></p>
+                <p><a href="{% url 'register' %}">Create an account</a> and stand against the darkness!</p>
+            </div>
+            <div class="featured-box">
                 <h4 class="section-header">Next Session</h4>
                 <div class="countdown-box">
                     <h2>October 27, 2019</h2>
@@ -18,6 +23,9 @@
         <div class="wiki-article-col__right">
             <div class="featured-box homepage-posts">
                 <h4 class="section-header">Recent Activity</h4>
+                {% for comment in comments %}
+                    <p>{{ comment.text }}</p>
+                {% endfor %}
             </div>
         </div>
     </div>

@@ -4,14 +4,30 @@
     <div class="wiki-article-container">
         <div class="wiki-article-col__left">
             {{ object.content }}
-            <a href="{% url 'add-comment-to-article' pk=article.pk %}">Add comment</a>
-            {% for comment in comments %}
-                <div class="comment">
-                    {{ comment.text }}
+            <div class="post-links">
+                <a href="{% url 'add-comment-to-article' pk=article.pk %}">Edit article</a>
+                <a href="{% url 'add-comment-to-article' pk=article.pk %}">Add comment</a>
+            </div>
+            <div class="comments-section">
+                <div class="comments-count">
+                    <h4><strong>{{ comments.count }} Comments</strong></h4>
                 </div>
-            {% empty %}
-                <p>Be the first to add a comment!</p>
-            {% endfor %}
+                {% for comment in comments %}
+                    <div class="comment-box">
+                        <div class="author-pane">
+                            <div class="comment-profile-pic">
+                                <img src="{{ comment.author.profile.image.url }}">
+                            </div>
+                            <p><a href="{% url 'profile-detail' comment.author %}">{{ comment.author }}</a></p>
+                        </div>
+                        <div class="comment">
+                            {{ comment.text }}
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>Be the first to add a comment!</p>
+                {% endfor %}
+            </div>
         </div>
         <div class="wiki-article-col__right">
             <div class="featured-box homepage-posts">

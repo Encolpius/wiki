@@ -24,7 +24,7 @@ class Article(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey(Article, on_delete=models.CASCADE)
-    author = models.CharField(max_length=200)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     approved_comment = models.BooleanField(default=False)

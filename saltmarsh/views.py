@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Sessions, Article, Comment
+from users.models import Profile
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .form import CommentForm
 
 def home(request):
     context = {
-        'sessions': Sessions.objects.all()
+        'sessions': Sessions.objects.all(),
     }
     return render(request, "saltmarsh/home.html", context)
 
@@ -18,6 +19,10 @@ class ArticleListView(ListView):
     template_name = "saltmarsh/home.html"
     context_object_name = "articles"
     ordering = ['-date_posted']
+    def get_context_data(self, **kwargs):
+        context = super(ArticleListView, self).get_context_data(**kwargs)
+        context['comments'] = Comment.objects.all()
+        return context
 
 class ArticleDetailView(DetailView):
     model = Article
