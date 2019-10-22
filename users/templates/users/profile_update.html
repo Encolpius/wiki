@@ -4,7 +4,7 @@
         <div class="wiki-article-col__left">
             <h4 style="color: red">Update Profile Info</h4>
             <hr>
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ p_form.as_p }}
                 <button class="btn-submit" type="submit">Update Profile</button>

@@ -6,7 +6,7 @@
             <div class="featured-box">
                 <h2>Welcome to <span class="subtitle-home">The Ghosts of Saltmarsh!</span></h2>
                 <p><strong>A current account of Saltmarsh and its environs</strong></p>
-                <p><a href="{% url 'register' %}">Create an account</a> and stand against the darkness!</p>
+                <p><a href="{% url 'register' %}">Create an account</a> and join the party!</p>
             </div>
             <div class="featured-box">
                 <h4 class="section-header">Next Session</h4>
@@ -22,10 +22,23 @@
         </div>
         <div class="wiki-article-col__right">
             <div class="featured-box homepage-posts">
-                <h4 class="section-header">Recent Activity</h4>
-                {% for comment in comments %}
-                    <p>{{ comment.text }}</p>
-                {% endfor %}
+                <h4 class="section-header">Recent Comments</h4>
+                <div class="featured-comment-box">
+                    {% for comment in comments %}
+                    <div class="featured-comment">
+                        <div class="featured-comment-info-box">
+                            <div class="featured-comment-picture">
+                                <img src="{{ comment.author.profile.image.url }}">
+                            </div>
+                            <div>
+                                <a href="#">{{ comment.post }}</a>
+                                <h6>{{ comment.date_posted}} by {{ comment.author }}</h6>
+                            </div>
+                        </div>
+                        <p>{{ comment.text }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

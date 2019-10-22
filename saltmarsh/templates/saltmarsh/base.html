@@ -19,7 +19,7 @@
         <ul class="li-inline">
             <li class="nav-title"><a href="{% url 'home' %}">THE GHOSTS OF SALTMARSH</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'article-create' %}">New Post</a></li>
+                <li><a href="{% url 'article-create' %}">New Post</a></li>
                 <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a class="log-link" href="{% url 'logout' %}">Logout</a></li>
             {% else %}
