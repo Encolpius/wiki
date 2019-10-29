@@ -148,6 +148,27 @@ SECTION LAYOUTS
     padding-top: 8px;
 }
 
+.about-link {
+    font-size: 13px;
+    text-align: right;
+    margin: 5px;
+    padding: 3px;
+}
+
+.page-header__title {
+    color: #3a3a3a;
+    font-weight: bold;
+    border-bottom: 1px solid #CCC;
+    padding: 10px 0;
+    margin-bottom: 18px;
+}
+
+.section-header {
+    margin: 30px 0 5px 0;
+    margin-top: 30px;
+}
+
+
 /*
 ============================
 NAVIGATION
@@ -325,18 +346,6 @@ strong {
     font-weight: 700;
 }
 
-.page-header__title {
-    color: #3a3a3a;
-    font-weight: bold;
-    border-bottom: 1px solid #CCC;
-    padding: 10px 0;
-    margin-bottom: 18px;
-}
-
-.section-header {
-    margin: 30px 0 5px 0;
-    margin-top: 30px;
-}
 
 /*
 ============================
@@ -349,6 +358,8 @@ COMMENTS SECTION
     padding-bottom: 12px;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 .comments-section {
@@ -372,16 +383,16 @@ COMMENTS SECTION
 .comment {
     border: 1px solid #ccc;
     padding: 10px;
-    margin-top: 20px;
     border-radius: 6px;
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .comment-profile-pic {
     min-width: 50px;
     max-width: 50px;
     height: 50px;
-    margin-right: 8px;
     margin-top: 10px;
 }
 
@@ -434,6 +445,7 @@ nav a {
 .post-links a:first-child {
     margin-right: 10px;
 }
+
 
 /*
 ============================

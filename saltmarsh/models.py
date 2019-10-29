@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.template.defaultfilters import slugify
 
 class Sessions(models.Model):
     title = models.CharField(max_length=100)
@@ -21,6 +22,9 @@ class Article(models.Model):
         return self.title 
     def get_absolute_url(self):
         return reverse('article-detail', kwargs={'pk': self.pk})
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Article, self).save(*args, **kwargs)
 
 class Comment(models.Model):
     post = models.ForeignKey(Article, on_delete=models.CASCADE)

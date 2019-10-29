@@ -21,25 +21,7 @@
             </div>
         </div>
         <div class="wiki-article-col__right">
-            <div class="featured-box homepage-posts">
-                <h4 class="section-header">Recent Comments</h4>
-                <div class="featured-comment-box">
-                    {% for comment in comments %}
-                    <div class="featured-comment">
-                        <div class="featured-comment-info-box">
-                            <div class="featured-comment-picture">
-                                <img src="{{ comment.author.profile.image.url }}">
-                            </div>
-                            <div>
-                                <a href="#">{{ comment.post }}</a>
-                                <h6>{{ comment.date_posted}} by {{ comment.author }}</h6>
-                            </div>
-                        </div>
-                        <p>{{ comment.text }}</p>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+            {% include 'saltmarsh/right_column.html' %}
         </div>
     </div>
 {% endblock %}

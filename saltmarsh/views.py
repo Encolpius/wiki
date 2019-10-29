@@ -37,7 +37,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user 
         return super().form_valid(form)
-
+    
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article 
     fields = ['title', 'content']
@@ -65,6 +65,7 @@ def add_comment_to_article(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
+            comment.author = request.user
             comment.post = article 
             comment.save()
             return redirect('article-detail', pk=article.pk)
