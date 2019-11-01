@@ -1,0 +1,516 @@
+/*
+============================
+IMPORTS
+============================
+*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+/*
+============================
+MAIN BODY LAYOUT
+============================
+*/
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+.container {
+    margin: 30px auto;
+    max-width: 990px;
+    border: 1px solid #CCC;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.container_wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.container-wrapper_head {
+    height: 105px;
+}
+
+.featured-box {
+    margin-bottom: 10px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #CCC;
+}
+
+
+/*
+============================
+SECTION LAYOUTS
+============================
+*/
+
+
+.wiki-article-container {
+    display: flex;
+}
+
+.wiki-article-col__left {
+    width: 602px;
+    margin-right: 12px;
+    padding-bottom: 8px;
+}
+
+.wiki-article-col__right {
+    flex-grow: 1;
+    max-width: 328px;
+}
+
+.homepage-posts {
+    margin-left: 8px;
+    flex-basis: auto;
+}
+
+.countdown-box {
+    margin: 2px 0;
+    padding: 10px;
+    background-color: #EEE;
+    width: 88%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #CCC;
+}
+
+.countdown-box * {
+    padding: 5px;
+}
+
+.messages-container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.success {
+    background-color: #D4EDDA;
+    color: #8A9A66;
+    font-weight: 700;
+}
+
+.error {
+    background-color: #F8D7DA;
+    color: #A74E69;
+}
+
+.featured-comment-info-box {
+    display: flex;
+}
+
+.featured-comment-box {
+    border: 1px solid #ccc;
+    width: 96%;
+}
+
+.featured-comment-picture {
+    width: 12%;
+    margin-right: 8px;
+}
+
+.featured-comment-picture img {
+    width: 34px;
+    height: 34px;
+    object-fit: cover;
+}
+
+.featured-comment {
+    border-bottom: 1px solid #ccc;
+    margin: 8px;
+}
+
+.featured-comment-info-box a {
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.featured-comment p {
+    padding-top: 12px;
+    font-size: 14px;
+}
+
+.featured-comment h6 {
+    padding-top: 8px;
+}
+
+.about-link {
+    font-size: 13px;
+    text-align: right;
+    margin: 5px;
+    padding: 3px;
+}
+
+.page-header__title {
+    color: #3a3a3a;
+    font-weight: bold;
+    border-bottom: 1px solid #CCC;
+    padding: 10px 0;
+    margin-bottom: 18px;
+}
+
+.section-header {
+    margin: 30px 0 5px 0;
+    margin-top: 30px;
+}
+
+
+/*
+============================
+NAVIGATION
+============================
+*/
+
+
+nav {
+    height: 55px;
+    display: flex;
+    background-color: #5f788a;
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+nav li {
+    display: inline;
+    padding: 8px 14px;
+}
+
+nav ul li:last-child {
+    margin: 0 30px 0 0;
+    border-radius: 4px;
+}
+
+.nav-title {
+    font-size: 18px;
+}
+
+.li-inline {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.li-inline li:first-child {
+    margin-right: auto;
+    margin-left: 30px;
+}
+
+nav li a{
+    padding: 19px 10px;
+    color: #cbd5db;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav li a:hover {
+    color: white;
+}
+
+
+/*
+============================
+HOMEPAGE
+============================
+*/
+
+
+.next-session {
+    height: 104px;
+    background-color: #EEE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.next-session h4 {
+    padding: 5px;
+}
+
+.subtitle-home {
+    color: #5f788a;
+    font-weight: 700;
+}
+
+
+/*
+============================
+PROFILE PAGE
+============================
+*/
+
+.profile-info {
+    display: flex;
+    padding: 10px 0;
+    margin: 9px 0;
+}
+
+.profile-text {
+    flex-grow: auto;
+    padding-top: 8px;
+    padding-left: 15px;
+    width: 100%;
+}
+
+.profile-username {
+    font-weight: 700;
+}
+
+.profile-text h4 {
+    font-weight: 200;
+}
+
+.profile-metadata {
+    color: #333;
+}
+
+.profile-update {
+    margin: 10px 0;
+}
+
+.profile-pic {
+    min-width: 135px;
+    max-width: 135px;
+    height: 135px;
+    margin-right: 8px;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*
+============================
+FONTS
+============================
+*/
+
+
+em {
+    font-style: italic;
+}
+
+h1 {
+    font-size: 36px;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+h2 {
+    font-size: 28px;
+    color: #3a3a3a;
+    padding: 6px 0;
+}
+
+h3, h4 {
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+h6 {
+    font-size: 11.66px;
+}
+
+p {
+    padding: 6px 0;
+}
+
+strong {
+    font-weight: 700;
+}
+
+
+/*
+============================
+COMMENTS SECTION
+============================
+*/
+
+.comments-count {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.comments-section {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.comment-box {
+    display: flex;
+}
+
+.author-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8px;
+    justify-content: center;
+    width: 100px;
+}
+
+.comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-profile-pic {
+    min-width: 50px;
+    max-width: 50px;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.comment-profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*
+============================
+BUTTONS
+============================
+*/
+
+.btn-submit {
+    cursor: pointer;
+    margin: 8px 0;
+    padding: 11px;
+    font-size: 1rem;
+    color: #17a2b8;
+    border: 1px solid #17a2b8;
+    background: white;
+    border-radius: 4px;
+}
+
+.btn-submit:hover {
+    color: white;
+    background: #17a2b8;
+    transition: 0.5s;
+}
+
+/*
+============================
+ANCHORS
+============================
+*/
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.post-links {
+    text-align: right;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.post-links a:first-child {
+    margin-right: 10px;
+}
+
+
+/*
+============================
+ERRORS
+============================
+*/
+
+.errorlist {
+    height: 60px;
+    background-color: #F8D7DA;
+    color: #A74E69;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.errorlist li {
+    font-size: 14px;
+    padding: 8px;
+}
+
+
+/*
+============================
+MEDIA QUERIES
+============================
+*/
+
+
+@media (max-width: 1044px) {
+
+    .container {
+        max-width: 802px;
+        margin: 0 auto;
+        margin-top: 30px;
+    }
+
+    .container_wrapper {
+        margin: 0 24px;
+    }
+
+    .wiki-article-col__right {
+        display: none;
+    }
+    .wiki-article-col__left {
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+@media (max-width: 828px) {
+    .container {
+        margin: 30px 20px;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .li-inline li:not(.nav-title)  {
+        display: none;
+    }
+
+    .li-inline li:first-child {
+        margin: 0 auto;
+    }
+}
