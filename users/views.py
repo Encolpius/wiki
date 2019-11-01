@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .form import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.models import User 
+from .form import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from saltmarsh.models import Comment
 
 def register(request):
     if request.method == 'POST':
@@ -18,7 +19,8 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, "users/profile.html")
+    comments = Comment.objects.all().order_by("-date_posted")[:5]
+    return render(request, "users/profile.html", { "comments": comments })
 
 @login_required
 def profile_update(request):
@@ -39,5 +41,6 @@ def profile_update(request):
     return render(request, "users/profile_update.html", context)
 
 def show_user_profile(request, username):
+    comments = Comment.objects.all().order_by("-date_posted")[:5]
     user = User.objects.get(username__icontains=username)
-    return render(request, 'users/profile_detail.html', {"user": user})
+    return render(request, 'users/profile_detail.html', {'user': user, 'comments': comments})

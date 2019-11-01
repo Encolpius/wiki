@@ -21,14 +21,14 @@ class ArticleListView(ListView):
     ordering = ['-date_posted']
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all()[:5]
+        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
         return context
 
 class ArticleDetailView(DetailView):
     model = Article
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
-        context['comments'] = Comment.objects.filter(post_id=self.object.id).all()
+        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
         return context
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
@@ -37,6 +37,10 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user 
         return super().form_valid(form)
+    def get_context_data(self, **kwargs):
+        context = super(ArticleCreateView, self).get_context_data(**kwargs)
+        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
+        return context
     
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article 
@@ -49,6 +53,10 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         if self.request.user == post.author:
             return True 
         return False
+    def get_context_data(self, **kwargs):
+        context = super(ArticleUpdateView, self).get_context_data(**kwargs)
+        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
+        return context
 
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Article 
@@ -58,6 +66,10 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         if self.request.user == post.author:
             return True 
         return False
+    def get_context_data(self, **kwargs):
+        context = super(ArticleDeleteView, self).get_context_data(**kwargs)
+        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
+        return context
 
 def add_comment_to_article(request, pk):
     article = get_object_or_404(Article, pk=pk)
