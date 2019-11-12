@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from .form import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from saltmarsh.models import Comment
 
+recent_comments = Comment.objects.all().order_by("-date_posted")[:5]
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -15,12 +17,14 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'users/register.html', {'form': form, 'recent_comments': recent_comments})
 
 @login_required
 def profile(request):
-    comments = Comment.objects.all().order_by("-date_posted")[:5]
-    return render(request, "users/profile.html", { "comments": comments })
+    context = {
+        'recent_comments': recent_comments,
+    }
+    return render(request, "users/profile.html", context)
 
 @login_required
 def profile_update(request):
@@ -41,6 +45,9 @@ def profile_update(request):
     return render(request, "users/profile_update.html", context)
 
 def show_user_profile(request, username):
-    comments = Comment.objects.all().order_by("-date_posted")[:5]
     user = User.objects.get(username__icontains=username)
-    return render(request, 'users/profile_detail.html', {'user': user, 'comments': comments})
+    context = {
+        'recent_comments': recent_comments,
+        'user': user,
+    }
+    return render(request, 'users/profile_detail.html', context)

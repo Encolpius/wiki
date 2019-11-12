@@ -1,0 +1,16 @@
+{% extends 'saltmarsh/base.html' %}
+{% block content %}
+    <h1 class="page-header__title">Edit Article</h1>
+    <div class="wiki-article-container">
+        <div class="wiki-article-col__left">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn-submit" type="submit">Update</button>
+            </form>
+        </div>
+        <div class="wiki-article-col__right">
+            {% include 'saltmarsh/right_column.html' %}
+        </div>
+    </div>
+{% endblock %}

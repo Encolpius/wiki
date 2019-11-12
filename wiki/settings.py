@@ -129,6 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILE_DIRS = [ os.path.join(BASE_DIR, "static"), ]
 
 LOGIN_REDIRECT_URL = "home"
 LOGIN_URL = "login"
@@ -145,3 +146,8 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 django_heroku.settings(locals())
+
+TINYMCE_JS_URL = STATIC_URL + 'tinymce/tinymce.min.js'
+TINYMCE_DEFAULT_CONFIG = {
+    'theme', "silver",
+}

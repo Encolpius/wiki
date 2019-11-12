@@ -5,14 +5,15 @@
         <div class="wiki-article-col__left">
             {{ object.content }}
             <div class="post-links">
-                <a href="{% url 'add-comment-to-article' pk=article.pk %}">Edit article</a>
+                <a href="{% url 'article-update' pk=article.pk %}">Edit article</a>
                 <a href="{% url 'add-comment-to-article' pk=article.pk %}">Add comment</a>
             </div>
             <div class="comments-section">
                 <div class="comments-count">
-                    <h4><strong>{{ comments.count }} Comments</strong></h4>
+                    <h4><strong>{{ comment_count }} Comment{{comment_count|pluralize}}</strong></h4>
                 </div>
                 {% for comment in comments %}
+                    {% if comment.post.pk == object.pk %}
                     <div class="comment-box">
                         <div class="author-pane">
                             <div class="comment-profile-pic">
@@ -24,6 +25,7 @@
                             {{ comment.text }}
                         </div>
                     </div>
+                    {% endif %}
                 {% empty %}
                     <p>Be the first to add a comment!</p>
                 {% endfor %}

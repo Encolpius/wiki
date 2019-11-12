@@ -5,6 +5,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .form import CommentForm
 
+recent_comments = Comment.objects.all().order_by("-date_posted")[:5]
+
 def home(request):
     context = {
         'sessions': Sessions.objects.all(),
@@ -21,14 +23,18 @@ class ArticleListView(ListView):
     ordering = ['-date_posted']
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
+        context['recent_comments'] = recent_comments
         return context
 
 class ArticleDetailView(DetailView):
     model = Article
     def get_context_data(self, **kwargs):
+        post = self.get_object()
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
+        comment_count = Comment.objects.filter(post = post.pk).count()
+        context['comment_count'] = comment_count
+        context['recent_comments'] = recent_comments
+        context['comments'] = Comment.objects.all().order_by("-date_posted")
         return context
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):
@@ -38,13 +44,14 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user 
         return super().form_valid(form)
     def get_context_data(self, **kwargs):
-        context = super(ArticleCreateView, self).get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
+        context = super().get_context_data(**kwargs)
+        context['recent_comments'] = recent_comments
         return context
     
 class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Article 
     fields = ['title', 'content']
+    template_name = "saltmarsh/article_update.html"
     def form_valid(self, form):
         form.instance.author = self.request.user 
         return super().form_valid(form)
@@ -55,7 +62,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return False
     def get_context_data(self, **kwargs):
         context = super(ArticleUpdateView, self).get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
+        context['recent_comments'] = recent_comments
         return context
 
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -68,7 +75,7 @@ class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
     def get_context_data(self, **kwargs):
         context = super(ArticleDeleteView, self).get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all().order_by("-date_posted")[:5]
+        context['recent_comments'] = recent_comments
         return context
 
 def add_comment_to_article(request, pk):
