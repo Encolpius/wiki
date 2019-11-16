@@ -2,8 +2,7 @@
 {% block content %}
     <div class="wiki-article-container">
         <div class="wiki-article-col__left">
-            <h4 style="color: red">Update Profile Info</h4>
-            <hr>
+            <h1 class="page-header__title">Update Profile</h1>
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ p_form.as_p }}

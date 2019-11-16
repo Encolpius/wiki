@@ -16,10 +16,9 @@
 
 <body>
     <nav>
-        <ul class="li-inline">
+        <ul class="li-inline justify-end">
             <li class="nav-title"><a href="{% url 'home' %}">THE GHOSTS OF SALTMARSH</a></li>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'article-create' %}">New Post</a></li>
                 <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a class="log-link" href="{% url 'logout' %}">Logout</a></li>
             {% else %}
@@ -36,10 +35,30 @@
         {% endfor %}
     {% endif %}
     <div class="container">
-        <div class="container_wrapper">
-            <div class="container-wrapper_head">
-
+        <div class="container-wrapper_head">
+            <div class="head-logo">
+                <img src="{% static '/saltmarsh-logo.png' %}">
             </div>
+            <div class="head-tabs">
+                <div class="head-tabs__title">
+                    <a href="{% url 'home' %}"><h3>The Ghosts of Saltmarsh Wiki</h3></a>
+                    <div class="new-page__button">
+                        <a class="header__transform" href="{% url 'article-create' %}">Add New Page</a>
+                    </div>
+                </div>
+                <div class="head-tabs__tablists">
+                    <ul class="li-inline tabs header__transform">
+                        <li>Players</li>
+                        <li>Sessions</li>
+                        <li>NPCs</li>
+                        <li>Places</li>
+                        <li>Enemies</li>
+                        <li>Wiki Editing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container_wrapper">
             <div>
                 {% block content %}{% endblock %}
             </div>

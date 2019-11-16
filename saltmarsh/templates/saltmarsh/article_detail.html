@@ -19,7 +19,7 @@
                             <div class="comment-profile-pic">
                                 <img src="{{ comment.author.profile.image.url }}">
                             </div>
-                            <p><a href="{% url 'profile-detail' request.user %} ">{{ comment.author }}</a></p>
+                            <p><a href="{% url 'profile-detail' comment.author %} ">{{ comment.author }}</a></p>
                         </div>
                         <div class="comment">
                             {{ comment.text }}
