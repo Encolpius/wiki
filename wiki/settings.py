@@ -146,8 +146,3 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 django_heroku.settings(locals())
-
-TINYMCE_JS_URL = STATIC_URL + 'tinymce/tinymce.min.js'
-TINYMCE_DEFAULT_CONFIG = {
-    'theme', "silver",
-}
