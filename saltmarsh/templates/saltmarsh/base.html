@@ -46,15 +46,33 @@
                         <a class="header__transform" href="{% url 'article-create' %}">Add New Page</a>
                     </div>
                 </div>
-                <div class="head-tabs__tablists">
+                <div class="head-tabs__tablists tab">
                     <ul class="li-inline tabs header__transform">
-                        <li>Players</li>
-                        <li>Sessions</li>
-                        <li>NPCs</li>
-                        <li>Places</li>
-                        <li>Enemies</li>
+                        <li class="tablinks" onmouseover="openNavTab(event, 'Players')">Players</li>
+                        <li class="tablinks" onmouseover="openNavTab(event, 'Sessions')">Sessions</li>
+                        <li class="tablinks" onmouseover="openNavTab(event, 'NPCs')">NPCs</li>
+                        <li class="tablinks" onmouseover="openNavTab(event, 'Places')">Places</li>
+                        <li class="tablinks" onmouseover="openNavTab(event, 'Villains')">Villains</li>
                         <li>Wiki Editing</li>
                     </ul>
+                    <div id="Players" class="tabcontent" onmouseleave="leaveTab('Players')">
+                        <p>Noara</p>
+                        <p>Cal</p>
+                    </div>
+                    <div id="Sessions" class="tabcontent" onmouseleave="leaveTab('Sessions')">
+                        <p>Session 1</p>
+                        <p>Session 2</p>
+                        <p>Session 3</p>
+                    </div>
+                    <div id="NPCs" class="tabcontent" onmouseleave="leaveTab('NPCs')">
+                        <p>Gellan Primewater</p>
+                    </div>
+                    <div id="Places" class="tabcontent" onmouseleave="leaveTab('Places')">
+                        <p>Saltmarsh</p>
+                    </div>
+                    <div id="Villains" class="tabcontent" onmouseleave="leaveTab('Villains')">
+                        <p>Sanbalet</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,5 +82,6 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'saltmarsh/script.js' %}"></script>
 </body>
 </html>

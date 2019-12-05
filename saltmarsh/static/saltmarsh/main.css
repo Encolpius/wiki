@@ -239,6 +239,41 @@ HEAD
     bottom: 10px;
 }
 
+
+/*
+============================
+NAV TABS
+============================
+*/
+
+.tablinks {
+    cursor: pointer;
+}
+
+.tabcontent {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 43px;
+    display: none;
+    position: absolute;
+    z-index: 5;
+}
+
+.tab p {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    color: black;
+    font-weight: 700;
+}
+
+.tab p:hover {
+    background-color: #E5F0F7;
+    color: #30719E;
+}
+
 /*
 ============================
 NAVIGATION
