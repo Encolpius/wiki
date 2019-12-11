@@ -1,25 +1,30 @@
 function openNavTab(evt, tabName) {
-    let tabcontent = document.getElementsByClassName("tabcontent");
     let tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
     for (let i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active"
-    if (tabName == "Sessions") {
-        document.getElementById(tabName).style.marginLeft = "90px";
-    } else if (tabName == "NPCs") {
-        document.getElementById(tabName).style.marginLeft = "180px";
-    } else if (tabName == "Places") {
-        document.getElementById(tabName).style.marginLeft = "250px";
-    } else if (tabName == "Villains") {
-        document.getElementById(tabName).style.marginLeft = "335px";
+    updateMargin(tabName);
+}
+
+function updateMargin(tabName) {
+    let tab = document.getElementById(tabName);
+    tabName == "Players"      ?  tab.style.marginLeft = "8px" :
+        tabName == "Sessions" ?  tab.style.marginLeft = "90px" : 
+        tabName == "NPCs"     ?  tab.style.marginLeft = "185px": 
+        tabName == "Places"   ?  tab.style.marginLeft = "250px" : 
+        tabName == "Villains" ?  tab.style.marginLeft = "335px" : 
+        tabName;
+}
+
+function closeNavTab() {
+    let tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
     }
 }
 
-function leaveTab(tabName) {
-    document.getElementById(tabName).style.display = "none";
+function keepTabOpen(tabName) {
+    document.getElementById(tabName).style.display = "block";
 }
+

@@ -4,6 +4,7 @@ from users.models import Profile
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .form import CommentForm
+from django.contrib.auth.models import User
 
 recent_comments = Comment.objects.all().order_by("-date_posted")[:5]
 
