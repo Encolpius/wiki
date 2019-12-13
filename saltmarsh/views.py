@@ -15,7 +15,11 @@ def home(request):
     return render(request, "saltmarsh/home.html", context)
 
 def about(request):
-    return render(request, "saltmarsh/about.html", { 'title': 'About'})
+    context = {
+        'title': 'About',
+        'recent_comments': recent_comments,
+    }
+    return render(request, "saltmarsh/about.html", context)
 
 class ArticleListView(ListView):
     model = Article
