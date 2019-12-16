@@ -7,9 +7,11 @@
                 <div class="featured-comment-picture">
                     <img src="{{ comment.author.profile.image.url }}">
                 </div>
-                <div style="margin-top: -3px">
-                    <a href="../../article/{{ comment.post.slug }}">{{ comment.post }}</a>
-                    <h6>{{ comment.date_posted }} by <a href="../../profile/{{ comment.author }}">{{ comment.author }}</a></h6>
+                <div class="comment-style" style="margin-top: -3px">
+                    <div class="comment-style">
+                        <a href="../../article/{{ comment.post.slug }}">{{ comment.post }}</a>
+                    </div>
+                    <h6 class="comment-style">{{ comment.date_posted }} by <a href="../../profile/{{ comment.author }}">{{ comment.author }}</a></h6>
                 </div>
             </div>
             <p>{{ comment.text }}</p>

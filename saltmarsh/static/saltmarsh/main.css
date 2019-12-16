@@ -159,6 +159,10 @@ SECTION LAYOUTS
     padding-top: 8px;
 }
 
+.comment-style {
+    padding-left: 2px;
+}
+
 .about-link {
     font-size: 13px;
     text-align: right;
@@ -237,6 +241,33 @@ HEAD
     position: absolute;
     right: 30px;
     bottom: 10px;
+}
+
+.wiki-title {
+    width: 60%;
+}
+
+.wiki-pages {
+    display: flex;
+    width: 40%;
+    min-width: 391px;
+}
+
+.pages-div {
+    text-align: right;
+    width: 54%;
+}
+
+.page-counter {
+    font-size: 14px;
+    text-align: right;
+}
+
+.total-pages {
+    font-weight: 700;
+    font-size: 24px;
+    display: block;
+    margin-bottom: 2px;
 }
 
 
@@ -345,6 +376,8 @@ nav li a:hover {
     color: white;
     font-family: 'Roboto', sans-serif;
 }
+
+
 
 /*
 ============================
@@ -621,9 +654,11 @@ MEDIA QUERIES
         margin: 0 24px;
     }
 
-    .wiki-article-col__right {
+    .wiki-article-col__right,
+    .pages-div {
         display: none;
     }
+
     .wiki-article-col__left {
         margin: 0 auto;
         width: 100%;

@@ -8,12 +8,6 @@ from django.contrib.auth.models import User
 
 recent_comments = Comment.objects.all().order_by("-date_posted")[:5]
 
-def home(request):
-    context = {
-        'sessions': Sessions.objects.all(),
-    }
-    return render(request, "saltmarsh/home.html", context)
-
 def about(request):
     context = {
         'title': 'About',
@@ -29,6 +23,7 @@ class ArticleListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
         context['recent_comments'] = recent_comments
+        context['pages'] = Article.objects.count()
         return context
 
 class ArticleDetailView(DetailView):

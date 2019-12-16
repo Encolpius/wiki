@@ -41,39 +41,46 @@
             </div>
             <div class="head-tabs">
                 <div class="head-tabs__title">
-                    <a href="{% url 'home' %}"><h3>The Ghosts of Saltmarsh Wiki</h3></a>
-                    <div class="new-page__button">
-                        <a class="header__transform" href="{% url 'article-create' %}">Add New Page</a>
+                    <div class="wiki-title">
+                        <a href="{% url 'home' %}"><h3>The Ghosts of Saltmarsh Wiki</h3></a>
+                    </div>
+                    <div class="new-page__button header__transform wiki-pages">
+                        <div class="pages-div">
+                            <p style="font-size: 14px; margin-top: 9px;"><span class="total-pages">{{ pages }}</span> pages</p>
+                        </div>
+                        <div style="width: 46%";>
+                            <a href="{% url 'article-create' %}">Add New Page</a>
+                        </div>
                     </div>
                 </div>
                 <div class="head-tabs__tablists tab" id="navTabs">
                     <ul class="li-inline tabs header__transform">
-                        <li class="tablinks" onmouseover="openNavTab(event, 'Players')" onmouseleave="closeNavTab()">Players</li>
-                        <li class="tablinks" onmouseover="openNavTab(event, 'Sessions')" onmouseleave="closeNavTab()">Sessions</li>
-                        <li class="tablinks" onmouseover="openNavTab(event, 'NPCs')" onmouseleave="closeNavTab()">NPCs</li>
-                        <li class="tablinks" onmouseover="openNavTab(event, 'Places')" onmouseleave="closeNavTab()">Places</li>
-                        <li class="tablinks" onmouseover="openNavTab(event, 'Villains')" onmouseleave="closeNavTab()">Villains</li>
+                        <li class="tablinks">Players</li>
+                        <li class="tablinks">Sessions</li>
+                        <li class="tablinks">NPCs</li>
+                        <li class="tablinks">Places</li>
+                        <li class="tablinks" onmouseleave="closeNavTab()">Villains</li>
                         <li>Wiki Editing</li>
                     </ul>
-                    <div id="Players" class="tabcontent" onmouseenter="keepTabOpen('Players')" onmouseleave="closeNavTab()">
-                        <p>Alltariel</p>
-                        <p>Cal</p>
-                        <p>Edith</p>
-                        <p>Noara</p>
-                        <p>Tayolt</p>
+                    <div id="Players" class="tabcontent" onmouseenter="keepTabOpen('Players')">
+                        <a href="{% url 'profile-detail' username='allatariel' %}"><p>Alltariel</p></a>
+                        <a href="{% url 'profile-detail' username='cal' %}"><p>Cal</p></a>
+                        <a href="{% url 'profile-detail' username='edith' %}"><p>Edith</p></a>
+                        <a href="{% url 'profile-detail' username='noara' %}"><p>Noara</p></a>
+                        <a href="{% url 'profile-detail' username='tayolt' %}"><p>Tayolt</p></a>
                     </div>
-                    <div id="Sessions" class="tabcontent" onmouseenter="keepTabOpen('Sessions')" onmouseleave="closeNavTab()">
+                    <div id="Sessions" class="tabcontent" onmouseenter="keepTabOpen('Sessions')">
                         <p>Session 1</p>
                         <p>Session 2</p>
                         <p>Session 3</p>
                     </div>
-                    <div id="NPCs" class="tabcontent" onmouseenter="keepTabOpen('NPCs')" onmouseleave="closeNavTab()">
+                    <div id="NPCs" class="tabcontent" onmouseenter="keepTabOpen('NPCs')">
                         <p>Gellan Primewater</p>
                     </div>
-                    <div id="Places" class="tabcontent" onmouseenter="keepTabOpen('Places')" onmouseleave="closeNavTab()">
+                    <div id="Places" class="tabcontent" onmouseenter="keepTabOpen('Places')">
                         <p>Saltmarsh</p>
                     </div>
-                    <div id="Villains" class="tabcontent" onmouseenter="keepTabOpen('Villains')" onmouseleave="closeNavTab()">
+                    <div id="Villains" class="tabcontent" onmouseenter="keepTabOpen('Villains')">
                         <p>Sanbalet</p>
                     </div>
                 </div>
