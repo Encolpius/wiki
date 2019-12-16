@@ -46,7 +46,7 @@
                     </div>
                     <div class="new-page__button header__transform wiki-pages">
                         <div class="pages-div">
-                            <p style="font-size: 14px; margin-top: 9px;"><span class="total-pages">{{ pages }}</span> pages</p>
+                            <p style="font-size: 14px; margin-top: 9px;"><span class="total-pages">{{ total_articles }}</span> pages</p>
                         </div>
                         <div style="width: 46%";>
                             <a href="{% url 'article-create' %}">Add New Page</a>
@@ -59,7 +59,7 @@
                         <li class="tablinks">Sessions</li>
                         <li class="tablinks">NPCs</li>
                         <li class="tablinks">Places</li>
-                        <li class="tablinks" onmouseleave="closeNavTab()">Villains</li>
+                        <li class="tablinks">Villains</li>
                         <li>Wiki Editing</li>
                     </ul>
                     <div id="Players" class="tabcontent" onmouseenter="keepTabOpen('Players')">
